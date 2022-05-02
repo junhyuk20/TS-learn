@@ -17,3 +17,4 @@ enum ShoesString {
 let myShoesString = ShoesString.Nike
 console.log(myShoesString)
 
+// readme 파일 만들고 커밋 테스트 

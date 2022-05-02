@@ -17,4 +17,3 @@ enum ShoesString {
 let myShoesString = ShoesString.Nike
 console.log(myShoesString)
 
-//테스트 진행 

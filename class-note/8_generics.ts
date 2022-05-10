@@ -9,31 +9,49 @@
 */
 
 
-/* 👓 제네릭의 첫 번째 예시
-function logText<T>(text:T): T {
+/* 👓 제네릭의 첫 번째 예시 */
+function logText1<T>(text:T): T {
     console.log(text)
      return text
  }
- logText<string>('문자열')
- */
+ logText1<string>('문자열')
 
-/*👓제네릭의 장점 중복 코드에 대한 예시
-function logText(text: string)  {    🎉똑같은 함수인데 들어오는 매개변수 차이로 인해 타입만 다른 중복 함수 생성
+
+/*👓제네릭의 장점 중복방지 코드에 대한 예시*/
+function overlapFn1(text: string)  {    //🎉똑같은 함수인데 들어오는 매개변수 차이로 인해 타입만 다른 중복 함수 생성
     console.log(text)
     return text
 }
-logText('문자열')
+overlapFn1('문자열')
 
-function logNumber(text: number)  { 🎉똑같은 함수인데 들어오는 매개변수 차이로 인해 타입만 다른 중복 함수 생성
+function overlapFn2(text: number)  { //🎉똑같은 함수인데 들어오는 매개변수 차이로 인해 타입만 다른 중복 함수 생성
     console.log(text)
     return text
 }
-logNumber(123)
-*/
+overlapFn2(123)
 
-/*👓 유니온 타입을 이용해서 여러 타입 받기  
-function test(param: string | number) { 🎉 하지만 반환타입을 정하지 못하므로, 이함수를 호출 후 받는 결괏값이 어떤 타입인지 알 수 없으므로 타입에 따라 제공되는 함수도 알 수 없음. 
+
+/*👓 유니온 타입을 이용한 제네릭 대체방법? */  
+function test(param: string | number) { //🎉 하지만 반환타입을 정하지 못하므로, 이함수를 호출 후 받는 결괏값이 어떤 타입인지 알 수 없으므로 타입에 따라 제공되는 함수도 알 수 없음. 
     console.log(param)
     return param
 }
-*/
+
+/*👓 인터페이스 제네릭 사용하기 */
+interface Dropdown<T> {
+    value : T
+    selected : boolean
+}
+const 테스트: Dropdown<string> = {value: '123', selected: false} 
+
+
+/*👓 제네릭의 타입 제한 */
+// 호출할 함수의 제네릭 type을 string으로 한뒤 호출하였을 때, TS는 이게 string인지 알수없기 떄문에 length를 사용못한다. 그러므로 매개변수에들어올 녀석이 배열임을 명시하여 TS가 length를 사용할 수 있는 녀석이다 라는것을 유추할 수 있도록 더 작성해 주어야 된다. 
+function logTextLength<T>(text: T[]): T[] { 
+    console.log(text.length)
+    text.forEach(function(value){
+        console.log(value)
+    })
+    return text
+}
+logTextLength<string>(['hi'])

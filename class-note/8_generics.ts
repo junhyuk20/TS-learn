@@ -67,7 +67,7 @@ function logTextLength2<T extends LengthType>(text: T): T {
 logTextLength2('a')  //이렇게 호출하면 가능한 이유는, 문자열 자체적으로 length속성이 있기때문에 위 interface의 속성이 length이므로 사용가능(음 개인적으로 이부분 이해할때 엄청이해 안됬음, 왜냐 인터페이스 length는 number인데 이놈은 그 length가 아니라 문자얼의 length속성이기 떄문에... 갠적으로 이런부분도 막아야 되지 않나 싶음)
 logTextLength2({ length: 123 })
 
-/*👓 key of로 제네릭의 타입 제한하기 */
+/*👓 제네릭의 타입 제한3 - keyof 키값으로 제한하기 */
 interface ShoppingItem { //keyof을 이용한 타입제한은 단순하게 key 이름 "name","price","stock" 으로 제네릭타입을 받겠다 라는 뜻임. 그래서 키 이름만 받을 수 있으며 키이름만이 반환된다. 
     name : string
     price : number

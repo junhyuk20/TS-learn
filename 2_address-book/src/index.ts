@@ -84,7 +84,7 @@ class AddressBook {
     );
   }
 
-  addContact(contact: object) {
+  addContact(contact: Contact ) { //바뀜
     this.contacts.push(contact);
   }
 

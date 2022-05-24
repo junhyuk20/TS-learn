@@ -1,4 +1,4 @@
-/* 타입추론 기본 */
+/* 타입추론 기본1 */
 
 // TS에서 아래와 같이 선언을하게 되면, 기본적으로 a라는 변수의 타입은 string이다. 라고 추론을 합니다.
 var a = "string";
@@ -19,7 +19,6 @@ function getC(c = 10) {
 /*------------------------------------------------------------------------------------------------------------------------------------*/
 
 /*타입 추론 기본 2 */
-
 interface Dropdown<T> {
   value : T;
   title : string;
@@ -28,4 +27,23 @@ interface Dropdown<T> {
 var shoppingItem: Dropdown<string> = {
   value : 'rlawnsgur',
   title : 'test'
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*타입 추론 기본 3 */
+
+interface Dropdown2<T> {
+  value : T;
+  title : string;
+}
+interface DetailedDropdown<K> extends Dropdown2<K> {
+  description: string;
+  tag: K;
+}
+var detailedDropdown: DetailedDropdown<number> = {
+  description : 'rlawnsgur',
+  tag : 1,
+  value : 2,
+  title : 'why'
 }

@@ -30,7 +30,7 @@ function isDeveloper(target: Developer | Person): target is Developer {
   return (target as Developer).skill !== undefined; // target이라는 인수를 Developer로 단언하고 Developer가 가지는 속성중 skill속성이 있으면 반환하겠다.
 }
 
-// 타입가드가 적용된 함수 isDeveloper의 반환값이 무엇이냐에 다라 어떤 속성이 보여지는지 적용하는 코드.
+// 타입가드가 적용된 함수 isDeveloper의 반환값에 따라 적용된 인터페이스를 알아보기.
 if (isDeveloper(tony)) {
   console.log(tony.skill);
 } else {

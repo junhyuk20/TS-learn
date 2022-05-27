@@ -52,7 +52,8 @@ var detailedDropdown: DetailedDropdown<number> = {
 
 /* Best Common Type */
 
-//간단 요약 가장 근접한 타입을 추론 한다. 아래의 arr변수의 타입 추론의 결과는 -> 유니온타입으로 number,string,boolean이 지정된다.
+//간단 요약 가장 근접한 타입을 추론 한다. 
+//아래의 arr변수의 타입 추론의 결과는 -> 유니온타입으로 number,string,boolean이 지정된다.
 
 let arr = [1,2,3,true, 'a'] 
 

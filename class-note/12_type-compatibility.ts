@@ -44,8 +44,8 @@ var empty1: Empty<string>;
 var empty2: Empty<number>;
 empty1 = empty2;
 
+// 속성을 정의 했을 때
 interface NotEmpty<T> {
-  // 속성을 정의 했을 때
   data: T;
 }
 
